@@ -4,9 +4,6 @@
 class StreamPosition
 {
 public:
-	static const long MIN_LINE = 1;
-	static const long MIN_COLUMN = 1;
-
 	explicit StreamPosition(long line = MIN_LINE, long column = MIN_COLUMN);
 	long GetLine() const;
 	void SetLine(long value);
@@ -17,8 +14,11 @@ public:
 	void DecreaseLine(long value = 1);
 	void DecreaseColumn(long value = 1);
 	void ResetColumn();
-	bool operator==(const StreamPosition & other) const;
-	bool operator!=(const StreamPosition & other) const;
+	bool operator==(StreamPosition const & other) const;
+	bool operator!=(StreamPosition const & other) const;
+
+	static const long MIN_LINE = 1;
+	static const long MIN_COLUMN = 1;
 
 private:
 	long m_line = MIN_LINE;

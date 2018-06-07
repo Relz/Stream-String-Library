@@ -1,4 +1,5 @@
 #include "StreamPosition.h"
+#include <algorithm>
 
 StreamPosition::StreamPosition(long line, long column)
 {
@@ -63,10 +64,10 @@ bool StreamPosition::operator!=(const StreamPosition & other) const
 
 void StreamPosition::SafeSetLine(long value)
 {
-	m_line = value >= MIN_LINE ? value : MIN_LINE;
+	m_line = std::max(MIN_LINE, value);
 }
 
 void StreamPosition::SafeSetColumn(long value)
 {
-	m_column = value >= MIN_COLUMN ? value : MIN_COLUMN;
+	m_column = std::max(MIN_COLUMN, value);
 }
