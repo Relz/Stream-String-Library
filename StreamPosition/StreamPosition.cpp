@@ -62,6 +62,9 @@ bool StreamPosition::operator!=(const StreamPosition & other) const
 	return GetLine() != other.GetLine() || GetColumn() != other.GetColumn();
 }
 
+long const StreamPosition::MIN_LINE = 1;
+long const StreamPosition::MIN_COLUMN = 1;
+
 void StreamPosition::SafeSetLine(long value)
 {
 	m_line = std::max(MIN_LINE, value);

@@ -17,8 +17,8 @@ public:
 	bool operator==(StreamPosition const & other) const;
 	bool operator!=(StreamPosition const & other) const;
 
-	static const long MIN_LINE = 1;
-	static const long MIN_COLUMN = 1;
+	static long const MIN_LINE;
+	static long const MIN_COLUMN;
 
 private:
 	long m_line = MIN_LINE;
